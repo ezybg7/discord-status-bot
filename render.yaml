@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: discord-status-bot
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DISCORD_BOT_TOKEN
+        sync: false
+      - key: DISCORD_USER_ID
+        sync: false
+      - key: DISCORD_GUILD_ID
+        sync: false
+      - key: CORS_ORIGINS
+        value: "https://your-portfolio-domain.com" 
